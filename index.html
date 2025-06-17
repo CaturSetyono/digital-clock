@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jam Digital Gaya Soft UI (Disempurnakan)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      /* Palet Warna Soft UI */
+      --bg-color: #e0e5ec;
+      --text-color: #3d4a59;
+      --shadow-light: #ffffff;
+      --shadow-dark: #a3b1c6;
+
+      /* Ukuran Kartu Jam Utama (Jam & Menit) */
+      --card-width: 200px;
+      --card-height: 180px;
+      --font-size: 9rem;
+      
+      /* Ukuran Kartu Detik (Lebih Kecil) */
+      --card-width-s: 140px;
+      --card-height-s: 120px;
+      --font-size-s: 6rem;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      font-family: "Poppins", sans-serif;
+      font-weight: 600;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .clock-container {
+      display: flex;
+      gap: 1.5rem; /* Jarak antar elemen disesuaikan */
+      align-items: center;
+    }
+
+    .time-block {
+      position: relative;
+    }
+
+    /* KARTU JAM DENGAN EFEK NEUMORPHISM */
+    .time-unit {
+      position: relative;
+      width: var(--card-width);
+      height: var(--card-height);
+      background-color: var(--bg-color);
+      border-radius: 20px;
+      color: var(--text-color);
+      font-size: var(--font-size);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 7px 7px 15px var(--shadow-dark),
+        -7px -7px 15px var(--shadow-light);
+      transition: box-shadow 0.2s ease-out, transform 0.2s ease-out;
+    }
+
+    /* PENYESUAIAN UNTUK KARTU DETIK */
+    .seconds-unit {
+      width: var(--card-width-s);
+      height: var(--card-height-s);
+      font-size: var(--font-size-s);
+      border-radius: 15px;
+      opacity: 0.9; /* Sedikit transparan untuk hierarki */
+    }
+
+    /* EFEK 'POP' SAAT ANGKA BERUBAH */
+    .time-unit.pop {
+      box-shadow: inset 4px 4px 8px var(--shadow-dark),
+        inset -4px -4px 8px var(--shadow-light);
+      transform: scale(0.98);
+    }
+    
+    /* STYLE UNTUK PEMISAH TITIK DUA */
+    .separator {
+      font-size: 6rem;
+      color: var(--text-color);
+      opacity: 0.6;
+      padding-bottom: 1rem; /* Agar sejajar dengan angka */
+    }
+
+    /* RESPONSIVE DENGAN TRANSFORM SCALE */
+    @media (max-width: 900px) {
+      .clock-container {
+        transform: scale(0.8);
+      }
+    }
+    @media (max-width: 720px) {
+      .clock-container {
+        transform: scale(0.6);
+      }
+    }
+    @media (max-width: 540px) {
+      .clock-container {
+        transform: scale(0.45);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="clock-container">
+    <div class="time-block">
+      <div class="time-unit" id="hour-unit">00</div>
+    </div>
+    <div class="separator">:</div>
+    <div class="time-block">
+      <div class="time-unit" id="minute-unit">00</div>
+    </div>
+    <div class="separator">:</div>
+    <div class="time-block">
+      <div class="time-unit seconds-unit" id="second-unit">00</div>
+    </div>
+  </div>
+
+  <script>
+    // Logika JavaScript Anda sudah benar, tidak perlu diubah.
+    const hourUnit = document.getElementById("hour-unit");
+    const minuteUnit = document.getElementById("minute-unit");
+    const secondUnit = document.getElementById("second-unit");
+
+    function updateDisplay(element, newValue) {
+      const currentValue = element.textContent;
+      if (currentValue !== newValue) {
+        element.textContent = newValue;
+        element.classList.add("pop");
+        setTimeout(() => {
+          element.classList.remove("pop");
+        }, 200);
+      }
+    }
+
+    function updateClock() {
+      const now = new Date();
+      const options = {
+        timeZone: "Asia/Jakarta",
+        hour12: false,
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      };
+
+      const timeString = now.toLocaleString("en-GB", options);
+      const [hour, minute, second] = timeString.split(":");
+
+      updateDisplay(hourUnit, hour);
+      updateDisplay(minuteUnit, minute);
+      updateDisplay(secondUnit, second);
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
+</body>
+</html>
