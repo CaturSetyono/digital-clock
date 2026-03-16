@@ -1,166 +1,72 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jam Digital Gaya Soft UI (Disempurnakan)</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap"
-    rel="stylesheet"
-  />
-  <style>
-    :root {
-      /* Palet Warna Soft UI */
-      --bg-color: #e0e5ec;
-      --text-color: #3d4a59;
-      --shadow-light: #ffffff;
-      --shadow-dark: #a3b1c6;
-
-      /* Ukuran Kartu Jam Utama (Jam & Menit) */
-      --card-width: 200px;
-      --card-height: 180px;
-      --font-size: 9rem;
-      
-      /* Ukuran Kartu Detik (Lebih Kecil) */
-      --card-width-s: 140px;
-      --card-height-s: 120px;
-      --font-size-s: 6rem;
-    }
-
-    body {
-      background-color: var(--bg-color);
-      font-family: "Poppins", sans-serif;
-      font-weight: 600;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      overflow: hidden;
-    }
-
-    .clock-container {
-      display: flex;
-      gap: 1.5rem; /* Jarak antar elemen disesuaikan */
-      align-items: center;
-    }
-
-    .time-block {
-      position: relative;
-    }
-
-    /* KARTU JAM DENGAN EFEK NEUMORPHISM */
-    .time-unit {
-      position: relative;
-      width: var(--card-width);
-      height: var(--card-height);
-      background-color: var(--bg-color);
-      border-radius: 20px;
-      color: var(--text-color);
-      font-size: var(--font-size);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 7px 7px 15px var(--shadow-dark),
-        -7px -7px 15px var(--shadow-light);
-      transition: box-shadow 0.2s ease-out, transform 0.2s ease-out;
-    }
-
-    /* PENYESUAIAN UNTUK KARTU DETIK */
-    .seconds-unit {
-      width: var(--card-width-s);
-      height: var(--card-height-s);
-      font-size: var(--font-size-s);
-      border-radius: 15px;
-      opacity: 0.9; /* Sedikit transparan untuk hierarki */
-    }
-
-    /* EFEK 'POP' SAAT ANGKA BERUBAH */
-    .time-unit.pop {
-      box-shadow: inset 4px 4px 8px var(--shadow-dark),
-        inset -4px -4px 8px var(--shadow-light);
-      transform: scale(0.98);
-    }
-    
-    /* STYLE UNTUK PEMISAH TITIK DUA */
-    .separator {
-      font-size: 6rem;
-      color: var(--text-color);
-      opacity: 0.6;
-      padding-bottom: 1rem; /* Agar sejajar dengan angka */
-    }
-
-    /* RESPONSIVE DENGAN TRANSFORM SCALE */
-    @media (max-width: 900px) {
-      .clock-container {
-        transform: scale(0.8);
-      }
-    }
-    @media (max-width: 720px) {
-      .clock-container {
-        transform: scale(0.6);
-      }
-    }
-    @media (max-width: 540px) {
-      .clock-container {
-        transform: scale(0.45);
-      }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0f172a">
+  <title>Dashboard - FlowState Workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <div class="clock-container">
-    <div class="time-block">
-      <div class="time-unit" id="hour-unit">00</div>
-    </div>
-    <div class="separator">:</div>
-    <div class="time-block">
-      <div class="time-unit" id="minute-unit">00</div>
-    </div>
-    <div class="separator">:</div>
-    <div class="time-block">
-      <div class="time-unit seconds-unit" id="second-unit">00</div>
+<body data-page="dashboard">
+  <a class="skip-link" href="#main-content">Lewati ke konten</a>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div>
+        <a class="brand" href="index.html"><div class="brand-mark">FS</div><div><strong>FlowState</strong><span>Workspace</span></div></a>
+        <nav class="nav-links" aria-label="Navigasi utama">
+          <a href="index.html" class="nav-link" data-nav="index.html"><strong>Dashboard</strong><span>Ringkasan fokus</span></a>
+          <a href="clock.html" class="nav-link" data-nav="clock.html"><strong>Clock</strong><span>Jam & zona waktu</span></a>
+          <a href="stopwatch.html" class="nav-link" data-nav="stopwatch.html"><strong>Stopwatch</strong><span>Hitung & lap</span></a>
+          <a href="timer.html" class="nav-link" data-nav="timer.html"><strong>Timer</strong><span>Countdown cepat</span></a>
+          <a href="pomodoro.html" class="nav-link" data-nav="pomodoro.html"><strong>Pomodoro</strong><span>Fokus & break</span></a>
+          <a href="schedule.html" class="nav-link" data-nav="schedule.html"><strong>Schedule</strong><span>Agenda harian</span></a>
+          <a href="tasks.html" class="nav-link" data-nav="tasks.html"><strong>Tasks</strong><span>Prioritas kerja</span></a>
+          <a href="notes.html" class="nav-link" data-nav="notes.html"><strong>Notes</strong><span>Catatan cepat</span></a>
+          <a href="habits.html" class="nav-link" data-nav="habits.html"><strong>Habits</strong><span>Rutinitas mingguan</span></a>
+          <a href="insights.html" class="nav-link" data-nav="insights.html"><strong>Insights</strong><span>Analitik kerja</span></a>
+        </nav>
+      </div>
+      <section class="install-card"><p class="eyebrow">PWA</p><h3>Pasang aplikasi</h3><p>Akses offline dari desktop atau home screen.</p><button class="secondary-button" id="install-app" disabled>Install app</button></section>
+    </aside>
+    <div class="main-panel">
+      <header class="topbar">
+        <div><p class="eyebrow">Productivity workspace</p><h1>Dashboard</h1></div>
+        <div class="topbar-actions"><button class="ghost-button" id="today-chip" type="button"></button><button class="primary-button" id="focus-chip" type="button">Focus score --</button></div>
+      </header>
+      <main id="main-content" class="page-content">
+        <section class="hero-card reveal">
+          <div><p class="eyebrow">Workspace overview</p><h2>Ruang kerja produktivitas yang rapi, cepat, dan relevan.</h2><p class="muted">Pantau waktu, prioritas, agenda, dan ritme fokus dari satu dashboard.</p></div>
+          <div class="hero-metrics">
+            <div class="metric-panel accent"><span>Focus session</span><strong id="dashboard-pomodoro-count">0</strong><small>selesai hari ini</small></div>
+            <div class="metric-panel"><span>Task done</span><strong id="dashboard-task-complete">0</strong><small>diselesaikan</small></div>
+          </div>
+        </section>
+        <section class="grid2 reveal">
+          <article class="panel"><div class="panel-header"><div><p class="eyebrow">Local time</p><h3>Jakarta clock</h3></div><a class="panel-link" href="clock.html">Open</a></div><div class="clock-stack"><strong id="hero-time">00:00:00</strong><span id="hero-date">--</span></div></article>
+          <article class="panel"><div class="panel-header"><div><p class="eyebrow">Today</p><h3>Prioritas utama</h3></div><a class="panel-link" href="tasks.html">Manage</a></div><div class="stack" id="dashboard-task-list"></div></article>
+          <article class="panel"><div class="panel-header"><div><p class="eyebrow">Agenda</p><h3>Jadwal berikutnya</h3></div><a class="panel-link" href="schedule.html">Plan</a></div><div class="stack" id="dashboard-schedule-list"></div></article>
+          <article class="panel"><div class="panel-header"><div><p class="eyebrow">Momentum</p><h3>Ringkasan habit</h3></div><a class="panel-link" href="habits.html">Track</a></div><div class="stack" id="dashboard-habits"></div></article>
+        </section>
+        <section class="grid5 reveal">
+          <article class="feature-card"><span>01</span><h3>Clock</h3><p>Jam lokal dan world clock.</p></article>
+          <article class="feature-card"><span>02</span><h3>Stopwatch</h3><p>Lap timing untuk drill dan tracking.</p></article>
+          <article class="feature-card"><span>03</span><h3>Timer</h3><p>Preset countdown untuk deep work.</p></article>
+          <article class="feature-card"><span>04</span><h3>Pomodoro</h3><p>Siklus fokus yang tersimpan.</p></article>
+          <article class="feature-card"><span>05</span><h3>Schedule</h3><p>Agenda harian yang jelas.</p></article>
+          <article class="feature-card"><span>06</span><h3>Tasks</h3><p>Prioritas dengan status selesai.</p></article>
+          <article class="feature-card"><span>07</span><h3>Notes</h3><p>Quick capture ide dan poin rapat.</p></article>
+          <article class="feature-card"><span>08</span><h3>Habits</h3><p>Tracker konsistensi mingguan.</p></article>
+          <article class="feature-card"><span>09</span><h3>Insights</h3><p>Analitik ringkas workflow.</p></article>
+          <article class="feature-card"><span>10</span><h3>PWA</h3><p>Bisa dipasang dan tetap jalan offline.</p></article>
+        </section>
+      </main>
     </div>
   </div>
-
-  <script>
-    // Logika JavaScript Anda sudah benar, tidak perlu diubah.
-    const hourUnit = document.getElementById("hour-unit");
-    const minuteUnit = document.getElementById("minute-unit");
-    const secondUnit = document.getElementById("second-unit");
-
-    function updateDisplay(element, newValue) {
-      const currentValue = element.textContent;
-      if (currentValue !== newValue) {
-        element.textContent = newValue;
-        element.classList.add("pop");
-        setTimeout(() => {
-          element.classList.remove("pop");
-        }, 200);
-      }
-    }
-
-    function updateClock() {
-      const now = new Date();
-      const options = {
-        timeZone: "Asia/Jakarta",
-        hour12: false,
-        hour: "2-digit",
-        minute: "2-digit",
-        second: "2-digit",
-      };
-
-      const timeString = now.toLocaleString("en-GB", options);
-      const [hour, minute, second] = timeString.split(":");
-
-      updateDisplay(hourUnit, hour);
-      updateDisplay(minuteUnit, minute);
-      updateDisplay(secondUnit, second);
-    }
-
-    updateClock();
-    setInterval(updateClock, 1000);
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
