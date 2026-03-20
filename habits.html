@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0f172a">
+  <title>Habits - FlowState Workspace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet"><link rel="manifest" href="manifest.json"><link rel="icon" href="icons/icon.svg" type="image/svg+xml"><link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="habits">
+  <a class="skip-link" href="#main-content">Lewati ke konten</a>
+  <div class="app-shell">
+    <aside class="sidebar"><div><a class="brand" href="index.html"><div class="brand-mark">FS</div><div><strong>FlowState</strong><span>Workspace</span></div></a><nav class="nav-links" aria-label="Navigasi utama"><a href="index.html" class="nav-link" data-nav="index.html"><strong>Dashboard</strong><span>Ringkasan fokus</span></a><a href="clock.html" class="nav-link" data-nav="clock.html"><strong>Clock</strong><span>Jam & zona waktu</span></a><a href="stopwatch.html" class="nav-link" data-nav="stopwatch.html"><strong>Stopwatch</strong><span>Hitung & lap</span></a><a href="timer.html" class="nav-link" data-nav="timer.html"><strong>Timer</strong><span>Countdown cepat</span></a><a href="pomodoro.html" class="nav-link" data-nav="pomodoro.html"><strong>Pomodoro</strong><span>Fokus & break</span></a><a href="schedule.html" class="nav-link" data-nav="schedule.html"><strong>Schedule</strong><span>Agenda harian</span></a><a href="tasks.html" class="nav-link" data-nav="tasks.html"><strong>Tasks</strong><span>Prioritas kerja</span></a><a href="notes.html" class="nav-link" data-nav="notes.html"><strong>Notes</strong><span>Catatan cepat</span></a><a href="habits.html" class="nav-link" data-nav="habits.html"><strong>Habits</strong><span>Rutinitas mingguan</span></a><a href="insights.html" class="nav-link" data-nav="insights.html"><strong>Insights</strong><span>Analitik kerja</span></a></nav></div><section class="install-card"><p class="eyebrow">PWA</p><h3>Pasang aplikasi</h3><p>Akses offline dari desktop atau home screen.</p><button class="secondary-button" id="install-app" disabled>Install app</button></section></aside>
+    <div class="main-panel">
+      <header class="topbar"><div><p class="eyebrow">Productivity workspace</p><h1>Habits</h1></div><div class="topbar-actions"><button class="ghost-button" id="today-chip" type="button"></button><button class="primary-button" id="focus-chip" type="button">Focus score --</button></div></header>
+      <main id="main-content" class="page-content">
+        <section class="grid2 reveal">
+          <article class="panel"><div class="panel-header"><div><p class="eyebrow">Build consistency</p><h3>Tambah habit</h3></div></div><form class="stack-form" id="habit-form"><label>Habit<input id="habit-name" type="text" placeholder="Review prioritas pagi" required></label><label>Target<select id="habit-target"><option>Daily</option><option>Weekday</option><option>Custom</option></select></label><button class="primary-button" type="submit">Tambah habit</button></form></article>
+          <article class="panel"><div class="panel-header"><div><p class="eyebrow">Weekly board</p><h3>Centang progres</h3></div></div><div class="stack" id="habit-board"></div></article>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
