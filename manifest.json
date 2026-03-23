@@ -1,0 +1,12 @@
+﻿{
+  "name": "FlowState Workspace",
+  "short_name": "FlowState",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f5efe4",
+  "theme_color": "#0f172a",
+  "icons": [
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icons/maskable.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}
